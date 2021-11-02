@@ -1,0 +1,23 @@
+Michael Vogt
+11/1/2021
+
+1. Reporting Structure
+The reporting Structure is a type that contains two values, employee and the numberOfReports.
+Because reporting Structure does not exist on the persistence layer, there is only the data type itself
+and a controller which handles the logic. The mapping for the controller is "/ReportingStructure".
+reporting Structure has 1 POST endpoint, called getReportingStructure. It takes in a path variable id,
+and returns a reporting Structure from it. The controller also has a helper function used to calculate
+the numberOfReports. It is a recursive function that counts all the reports below an employee and then checks
+the employee below them to see if they have any employees as well.
+
+2. Compenstion
+Along with the data type Compensation, there is also a data type called Compensationhelper. Compensationhelper
+is used to allow the user to insert the id as a path variable while inputting the salary and effectiveDate as 
+a json. Because Compensation is on the persistence layer, It has a dao, a service, and a controller. CompensationController
+has 2 rest points. A POST point, used to insert in new Compensations, and a GET point, used to get Compensations. 
+I also decided to have the dao for Compensation use an arraylist instead of implemting a mongoDB database, as I have
+more experience with that.
+
+3. Tests
+I used the file ChallengeApplicationTest to create some testcases. In it, it uses the id "16a596ae-edd3-4847-99fe-c4518e82c86f"
+to test both ReportingStructure and Compensation.
